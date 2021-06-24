@@ -4,13 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pandas = "*"
-matplotlib = "*"
-tensorflow = "*"
-ipykernel = "*"
-scikit-learn = "*"
-keras = "*"
-seaborn = "*"
+flask = "*"
+numpy = "*"
+pillow = "*"
+tensorflow = "==2.4.0"
+opencv-python = "*"
+gunicorn = "*"
 
 [dev-packages]
 
