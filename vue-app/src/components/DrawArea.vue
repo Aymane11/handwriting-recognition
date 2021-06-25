@@ -1,5 +1,8 @@
 <template>
     <div class="draw-area-container">
+        <transition name="fade-in" v-if="result">
+            <div class="result">{{result}}</div>        
+        </transition> 
         <canvas id="draw-area"></canvas>
         <div class="container draw-area-footer">
             <div>
@@ -21,6 +24,7 @@
 
 <script>
 import axios from 'axios';
+import config from "../config";
 export default {
     props: {
         drawColor: {
@@ -41,11 +45,13 @@ export default {
             context: null,
             painting: false,
             history: [],
+            result: "",
         };
     },
     
     methods: {
         clearDrawArea () {
+            this.result = ""
             this.context.fillStyle = "white";
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -105,12 +111,16 @@ export default {
         },
 
         async readImage () {
-            console.log(this.canvas.toDataURL('image/jpeg', 1.0));
+            this.result = "";
             try {
-                let response = await axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
-                console.log(response.data.bpi)
-            } catch (e) {
+                let form = new FormData();
+                form.append("image", this.canvas.toDataURL('image/jpeg', 1.0).replace("data:image/jpeg;base64,", "").valueOf());
 
+                let response = await axios.post(`${config.api_url}/predict`, form);
+                
+                this.result = response.data
+            } catch (e) {
+                console.log("Error while connecting to the predection server.")
             } finally {
 
             }
@@ -118,7 +128,6 @@ export default {
     },
     
     mounted () {
-        // window.addEventListener("load", () => {
         this.canvas = document.querySelector("#draw-area"); 
         this.context = this.canvas.getContext("2d"); 
             
