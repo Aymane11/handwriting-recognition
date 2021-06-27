@@ -14,7 +14,8 @@ app = Flask(__name__)
 
 current_dir = os.path.dirname(os.path.realpath(__file__))
 
-model_filename = "model_0.8951.h5"
+model_filename = "model.h5"
+
 model_path = os.path.join(current_dir, "models", model_filename)
 class_mapping = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabdefghnqrt'
 

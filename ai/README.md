@@ -14,11 +14,8 @@ $ pipenv install
 or
 $ pip install -r requirements.txt
 ```
+- Download the dataset from [here](https://www.kaggle.com/crawford/emnist) (Balanced dataset) and put each `csv` file in `data/emnist`
 
-## Contributors
+- Run the notebook
 
-- [@HaithamOumerzoug](https://github.com/HaithamOumerzoug)
-- [@outama-othmane](https://github.com/outama-othmane)
-- [@HipMaze](https://github.com/HipMaze)
-- [@HousniEL](https://github.com/HousniEL)
-- [@Aymane11](https://github.com/Aymane11)
+- You'll get a `h5` model ready to use
