@@ -1,6 +1,6 @@
 ### Test the API
 
-# Run the server
+#### Run the server
 ```bash
 $ python api.py
 ```
