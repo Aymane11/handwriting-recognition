@@ -1,5 +1,10 @@
 # Handwriting recognition
 
+## Demo
+<div align="center">
+    <img alt="Demo" src="https://i.imgur.com/yjp4c9I.gif" width=90%">
+</div>
+
 ## Contributors
 
 - [@HaithamOumerzoug](https://github.com/HaithamOumerzoug)
